@@ -1,0 +1,20 @@
+.container{
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1366px;
+}
+
+.body_wrapper{
+    display: flex;
+    height: 100%;
+}
+
+.body_left{
+    width: 65%;
+}
+
+.body_right{
+    height: 100%;
+    width: 35%;
+    margin-left: 20px;
+}

@@ -1,0 +1,16 @@
+.container{
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1366px;
+}
+
+.header_wrapper {
+    display: flex;
+    align-items: center;
+    height: 70px;
+    background-color: #b2b2b2;
+    padding: 10px 30px;
+    border: 1px solid #2b2d2f;
+    border-radius: 20px;
+}
+

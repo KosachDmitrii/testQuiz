@@ -1,0 +1,39 @@
+html {
+    font-size: 20px;
+    font-family: 'Ubuntu', sans-serif;
+    color: #2b2d2f
+}
+
+body {
+    font-size: 1rem;
+    background-color: #f8f8f8;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+*,
+::before,
+::after {
+    box-sizing: border-box;
+}
+
+input,
+textarea,
+button,
+select{
+    outline: 0 !important;
+    border: none;
+}
+
+button{
+    background: none;
+}
