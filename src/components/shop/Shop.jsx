@@ -6,6 +6,7 @@ import ProductList from "../productList/ProductList";
 import ProductDetails from "../productDetails/ProductDetails";
 import {Route} from "react-router-dom";
 import Pagination from "../pagination/Pagination";
+import {PATH_PRODUCT} from "../../config/config_nav";
 
 const Shop = (props) => {
 
@@ -29,7 +30,7 @@ const Shop = (props) => {
                     <Pagination paginate={paginate} productsPerPage={productsPerPage} totalProducts={props.products.length} currentPage={currentPage}/>
                 </div>
                 <div className={styles.body_right}>
-                    <Route path={'/shop/products/product/:'+ props.productCurrent.id}  render={() => {
+                    <Route path={PATH_PRODUCT + props.productCurrent.id}  render={() => {
                         return <ProductDetails productCurrent={props.productCurrent}/>
                     }}>
                     </Route>
