@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import Shop from "./components/shop/Shop";
-import {Redirect, Route} from "react-router-dom";
+import { Redirect, Route } from "react-router-dom";
 import './App.css';
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
+import { PATH_SHOP } from "./config/config_nav";
 
 function App() {
 
@@ -10,17 +11,17 @@ function App() {
     const [products, setProducts] = useState([...state.products]);
     const productCurrent = state.productCurrent;
 
-    useEffect(()=>{
+    useEffect(() => {
         setProducts([...state.products])
-    },[state])
+    }, [state])
 
-  return <React.Fragment>
-      <Redirect to={'/shop/products'}/>
-      <Route path={'/shop/products'}  render={() => {
-          return <Shop products={products} productCurrent={productCurrent}/>
-      }}>
-      </Route>
-  </React.Fragment>
+    return <React.Fragment>
+        <Redirect to={PATH_SHOP} />
+        <Route path={PATH_SHOP} render={() => {
+            return <Shop products={products} productCurrent={productCurrent} />
+        }}>
+        </Route>
+    </React.Fragment>
 }
 
 export default App;
