@@ -3,7 +3,7 @@ import Shop from "./components/shop/Shop";
 import { Redirect, Route } from "react-router-dom";
 import './App.css';
 import { useSelector } from "react-redux";
-import { PATH_SHOP } from "./config/config_nav";
+import { PATH_SHOP } from "./config/confi_nav";
 
 function App() {
 
