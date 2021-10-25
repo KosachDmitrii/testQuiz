@@ -6,7 +6,7 @@ import ProductList from "../productList/ProductList";
 import ProductDetails from "../productDetails/ProductDetails";
 import {Route} from "react-router-dom";
 import Pagination from "../pagination/Pagination";
-import {PATH_PRODUCT} from "../../config/config_nav";
+import {PATH_PRODUCT} from "../../config/confi_nav";
 
 const Shop = (props) => {
 
