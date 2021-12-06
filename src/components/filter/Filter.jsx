@@ -6,22 +6,17 @@ import {updateProductsListBySearch} from "../../actions/udateProductsListBySearc
 import {updateProductsListBySort} from "../../actions/updateProductListBySort";
 import {addNewProduct} from "../../actions/addNewProduct";
 
-const Filter = (props) => {
+const Filter = () => {
 
+    const actions = {
+        sort: updateProductsListBySort,
+        search: updateProductsListBySearch
+    }
     const onChange = (event) => {
         event.preventDefault();
         let name = event.target.name;
         let value = event.target.value;
-        switch (name) {
-            case 'search':
-                store.dispatch(updateProductsListBySearch(value));
-                break;
-            case'sort':
-                store.dispatch(updateProductsListBySort(value));
-                break;
-            default:
-                return;
-        }
+        store.dispatch(actions[name](value));
     }
 
     return <React.Fragment>

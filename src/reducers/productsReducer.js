@@ -55,18 +55,18 @@ export function productsReducer (state = initialState, action){
             switch (action.payload){
                 case 'name':
                     productsListBySort = productsList.sort((a,b) => {
-                        return a.name > b.name ? 1 : -1;
+                        return (a.name).toLowerCase() > (b.name).toLowerCase() ? 1 : (a.name).toLowerCase() < (b.name).toLowerCase() ? -1 : 0;
                     })
                     return {...state, products: productsListBySort, sortBy: action.payload};
                 case 'id':
                 case 'no sort':
                     productsListBySort = productsList.sort((a,b) => {
-                        return a.id > b.id ? 1 : -1;
+                        return a.id > b.id ? 1 : a.id < b.id ? -1 : 0;
                     })
                     return {...state, products: productsListBySort, sortBy: action.payload};
                 case 'price':
                     productsListBySort = productsList.sort((a,b) => {
-                        return Number.parseFloat(a.price) > Number.parseFloat(b.price) ? 1 : -1;
+                        return Number.parseFloat(a.price) > Number.parseFloat(b.price) ? 1 : Number.parseFloat(a.price) < Number.parseFloat(b.price) ? -1 : 0;
                     })
                     return {...state, products: productsListBySort, sortBy: action.payload};
                 default:

@@ -1,3 +1,7 @@
 node_modules
 /node_modules/
 /.idea/inspectionProfiles/Project_Default.xml
+/.idea/.gitignore
+/.idea/modules.xml
+/.idea/testQuiz.iml
+/.idea/vcs.xml
