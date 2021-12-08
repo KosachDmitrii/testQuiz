@@ -7,18 +7,10 @@ import { PATH_SHOP } from "./config/confi_nav";
 
 function App() {
 
-    const state = useSelector(state => state.products);
-    const [products, setProducts] = useState([...state.products]);
-    const productCurrent = state.productCurrent;
-
-    useEffect(() => {
-        setProducts([...state.products])
-    }, [state])
-
     return <React.Fragment>
         <Redirect to={PATH_SHOP} />
         <Route path={PATH_SHOP} render={() => {
-            return <Shop products={products} productCurrent={productCurrent} />
+            return <Shop/>
         }}>
         </Route>
     </React.Fragment>

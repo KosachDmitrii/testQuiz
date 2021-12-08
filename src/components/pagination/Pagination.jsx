@@ -3,8 +3,6 @@ import styles from './Pagination.module.css';
 
 const Pagination = ({productsPerPage, totalProducts, paginate, currentPage}) => {
     const pageNumbers = [];
-    console.log(totalProducts)
-    console.log(productsPerPage)
     for (let i = 1; i <= Math.ceil(totalProducts / productsPerPage); i++){
         pageNumbers.push(i);
     }
