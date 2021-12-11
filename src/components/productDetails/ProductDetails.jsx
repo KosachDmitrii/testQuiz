@@ -5,6 +5,7 @@ import store from "../../store/store";
 import {updateProductDetails} from "../../actions/updateProductDetails";
 import {updateProductCurrent} from "../../actions/updateProductCurrent";
 import {useSelector} from "react-redux";
+import {updateProductsListBySort} from "../../actions/updateProductListBySort";
 
 
 const ProductDetails = (props) => {
@@ -22,9 +23,9 @@ const ProductDetails = (props) => {
     const onSubmit = () => {
         const date = new Date().toLocaleDateString();
         setProduct({...product, date: date});
-        store.dispatch(updateProductDetails(product, pattern));
+        store.dispatch(updateProductDetails(product));
         store.dispatch(updateProductCurrent(product));
-
+        store.dispatch(updateProductsListBySort(pattern));
     }
 
     useEffect(()=>{

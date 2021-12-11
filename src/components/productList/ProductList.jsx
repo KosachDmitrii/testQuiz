@@ -1,10 +1,7 @@
-import React, {useState} from "react";
 import ProductsPerPage from "../products/ProductsPerPage";
 
 const ProductList = (props) => {
-    return <React.Fragment>
-        <ProductsPerPage products={props.products}/>
-    </React.Fragment>
+    return <ProductsPerPage products={props.products}/>
 }
 
 export default ProductList;

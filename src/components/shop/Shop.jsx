@@ -11,6 +11,7 @@ import {useSelector} from "react-redux";
 
 const Shop = () => {
     const state = useSelector(state => state.products);
+
     const [products, setProducts] = useState(state.products);
     const productCurrent = state.productCurrent;
 
@@ -28,10 +29,9 @@ const Shop = () => {
         setProducts([...state.products])
     }, [state])
 
-    return <React.Fragment>
-        <div className={styles.container}>
+    return <div className={styles.container}>
             <Header/>
-            <Filter />
+            <Filter sortBy={state.sortBy}/>
             <div className={styles.body_wrapper}>
                 <div className={styles.body_left}>
                     <ProductList products={currentProducts}/>
@@ -45,7 +45,6 @@ const Shop = () => {
                 </div>
             </div>
         </div>
-    </React.Fragment>
 }
 
 export default Shop;

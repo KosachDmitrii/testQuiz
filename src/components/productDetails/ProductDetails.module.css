@@ -68,7 +68,7 @@
 
 .details_item_button{
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .product_btn_save{

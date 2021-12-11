@@ -31,63 +31,28 @@ const initialState = {
 }
 
 export function productsReducer (state = initialState, action){
-    let productsList = JSON.parse(localStorage.getItem('products'));
     switch (action.type){
 
         case 'UPDATE_PRODUCT_DETAILS':
-            const list = productsList.map(product => {
-                return product.id === action.payload.id ? action.payload : product;
-            })
-            localStorage.setItem('products', JSON.stringify(list));
-            return {...state, products: list};
+            localStorage.setItem('products', JSON.stringify(action.payload));
+            return {...state, products: action.payload};
 
         case 'UPDATE_PRODUCTS_LIST_BY_SEARCH':
-            if(action.payload ===""){
-                return {...state, products: productsList};
-            }
-            const productsListBySearch = productsList.filter(product => {
-                return product.name.toLowerCase().includes(action.payload.toLowerCase()) === true ? product : ""
-            })
-            return {...state, products: productsListBySearch};
+            return {...state, products: action.payload};
 
         case 'UPDATE_PRODUCTS_LIST_BY_SORT':
-            let productsListBySort = [];
-            switch (action.payload){
-                case 'name':
-                    productsListBySort = productsList.sort((a,b) => {
-                        return (a.name).toLowerCase() > (b.name).toLowerCase() ? 1 : (a.name).toLowerCase() < (b.name).toLowerCase() ? -1 : 0;
-                    })
-                    return {...state, products: productsListBySort, sortBy: action.payload};
-                case 'id':
-                case 'no sort':
-                    productsListBySort = productsList.sort((a,b) => {
-                        return a.id > b.id ? 1 : a.id < b.id ? -1 : 0;
-                    })
-                    return {...state, products: productsListBySort, sortBy: action.payload};
-                case 'price':
-                    productsListBySort = productsList.sort((a,b) => {
-                        return Number.parseFloat(a.price) > Number.parseFloat(b.price) ? 1 : Number.parseFloat(a.price) < Number.parseFloat(b.price) ? -1 : 0;
-                    })
-                    return {...state, products: productsListBySort, sortBy: action.payload};
-                default:
-                    return state;
-            }
+            return {...state, products: action.payload.products, sortBy: action.payload.sortBy};
 
         case 'UPDATE_PRODUCT_CURRENT':
-            return {...state, productCurrent: action.payload}
+            return {...state, productCurrent: action.payload};
 
         case 'ADD_NEW_PRODUCT':
-            const newList = Array.from([...productsList]);
-            newList.push(action.payload)
-            localStorage.setItem('products', JSON.stringify(newList));
-          return {...state, products: newList}
+            localStorage.setItem('products', JSON.stringify(action.payload));
+          return {...state, products: action.payload};
 
         case 'DELETE_PRODUCT':
-            const newDeleteList = productsList.filter(product => {
-                return product.id !== action.payload;
-            })
-            localStorage.setItem('products', JSON.stringify(newDeleteList));
-            return {...state, products: newDeleteList, productCurrent: newDeleteList[0]}
+            localStorage.setItem('products', JSON.stringify(action.payload));
+            return {...state, products: action.payload, productCurrent: action.payload[0]}
 
         default:
             return state;

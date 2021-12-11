@@ -1,14 +1,12 @@
-import {UPDATE_PRODUCT_DETAILS, UPDATE_PRODUCTS_LIST_BY_SORT} from "./typeActions";
+import {UPDATE_PRODUCT_DETAILS} from "./typeActions";
+import {updateItem} from "../services/service_updateItem";
 
 
-export const updateProductDetails = (product, pattern) => (dispatch) =>{
+export const updateProductDetails = (product) => (dispatch) =>{
+    let productsList = JSON.parse(localStorage.getItem('products'));
+    let data = updateItem(product, productsList);
     dispatch({
         type: UPDATE_PRODUCT_DETAILS,
-        payload: product
+        payload: data
     });
-    dispatch({
-        type: UPDATE_PRODUCTS_LIST_BY_SORT,
-        payload: pattern
-    })
-
 }

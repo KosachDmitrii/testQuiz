@@ -5,7 +5,7 @@ import Product from "../product/Product";
 
 const ProductsPerPage = (props) => {
     return <React.Fragment>
-        {props.products.map((product, index) => {
+        {props.products.map((product) => {
             return <NavLink key={product.id} className={styles.nav_link} to={'/shop/products/product/:' + product.id}>
                 <Product product={product}/>
             </NavLink>
